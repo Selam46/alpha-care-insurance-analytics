@@ -29,3 +29,14 @@ def plot_scatter(data, x, y, hue=None):
     sns.scatterplot(x=x, y=y, hue=hue, data=data)
     plt.title(f"{x} vs {y}")
     plt.show()
+
+
+def plot_risk_comparison(data, group_column, target_column='TotalClaims'):
+    """Create box plot comparing risk distribution between groups."""
+    plt.figure(figsize=(12, 6))
+    sns.boxplot(x=group_column, y=target_column, data=data)
+    plt.xticks(rotation=45)
+    plt.title(f'Risk Distribution by {group_column}')
+    plt.tight_layout()
+    return plt
+
